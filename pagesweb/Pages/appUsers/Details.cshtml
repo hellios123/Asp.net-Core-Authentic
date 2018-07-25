@@ -1,0 +1,55 @@
+﻿@page
+@model pagesweb.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AppUser</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AppUser.FirstMidName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AppUser.FirstMidName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AppUser.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AppUser.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AppUser.MobileOrEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AppUser.MobileOrEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AppUser.Password)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AppUser.Password)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AppUser.Birthday)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AppUser.Birthday)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AppUser.Gender)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AppUser.Gender)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.AppUser.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

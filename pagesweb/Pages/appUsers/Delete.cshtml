@@ -1,0 +1,58 @@
+﻿@page
+@model pagesweb.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>AppUser</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AppUser.FirstMidName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AppUser.FirstMidName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AppUser.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AppUser.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AppUser.MobileOrEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AppUser.MobileOrEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AppUser.Password)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AppUser.Password)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AppUser.Birthday)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AppUser.Birthday)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AppUser.Gender)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AppUser.Gender)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="AppUser.Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

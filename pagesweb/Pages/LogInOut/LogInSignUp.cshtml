@@ -1,0 +1,117 @@
+﻿@page
+@model pagesweb.Pages.LogInOut.LogInSignUpModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+
+</head>
+<body style="padding:0">
+    <div class="row" style="background-color:forestgreen;height:auto">
+        <div class="col-md-1 " style="font-weight:200;font-size:60px ;padding:0px 100px">
+            Gesicht
+        </div>
+        <div class="col-md-offset-5 col-md-4" style="vertical-align:central">
+            <form method="post" asp-page-handler="LogIn">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <p>Email or Phone</p>
+                        <input asp-for="login.MobileOrEmail" type="text" placeholder="EmailOrNumber" autocomplete="on" style="background-color:rgb(250, 255, 189) !important;" />
+                        <span asp-validation-for="login.MobileOrEmail" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin:0px 20px">
+                    <div class="form-group">
+                        <p>Password</p>
+                        <input asp-for="login.Password" type="password" placeholder="Password" autocomplete="on" style="background-color:rgb(250, 255, 189) !important;" />
+                        <a Forgotten account? asp-page="/PassForgotten"></a>
+                        <span asp-validation-for="login.Password" class="text-danger"></span>
+
+                        <checkbox value="IsPersist">Remember Me </checkbox>
+                    </div>
+                </div>
+                <div class="col-md-2" style="margin:22px 10px" >
+                    <input type="submit" value="LOG IN" class="btn btn-sm" style="background-color:blue;color:white;" />
+                </div>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            </form>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-4" style="height:auto">
+            <h2>Create a new account</h2>
+            <h4>It's free and always will be.</h4>
+            <div class="row">
+                <div class="col-md-4">
+                    <form method="post" asp-page-handler="Register">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input asp-for="AppUser.FirstMidName" class="form-control" placeholder="First name" />
+                                <span asp-validation-for="AppUser.FirstMidName" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input asp-for="AppUser.LastName" class="form-control" placeholder="Surname" />
+                                <span asp-validation-for="AppUser.LastName" class="text-danger "></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input asp-for="AppUser.MobileOrEmail" class="form-control" placeholder="Mobile number or email address" />
+                            <span asp-validation-for="AppUser.MobileOrEmail" class="text-danger "></span>
+                        </div>
+                        <div class="form-group">
+                            <input asp-for="AppUser.Password" class="form-control" placeholder="New password" />
+                            <span asp-validation-for="AppUser.Password" class="text-danger "></span>
+                        </div>
+                        <h2>Birthday</h2>
+
+                        <div class="form-group">
+                            <input asp-for="AppUser.Birthday" class="form-control" />
+                            <span asp-validation-for="AppUser.Birthday" class="text-danger"></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                
+                                <input asp-for="AppUser.Gender" type="radio" value="Female" id="u_0_a" />
+                                <p class="control-label">Female</p>
+                            </div>
+                            <div class="col-md-6">
+                                <input asp-for="AppUser.Gender" type="radio" value="Male" />
+                                <p class="control-label">Male</p>
+                            </div>
+                            <span asp-validation-for="AppUser.Gender" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Sign Up" class="btn btn-default btn-success " />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
